@@ -10,22 +10,16 @@ import javax.persistence.Query;
 
 public class CustomerDao {
 	public void databaseAddCustomer(Customer customer) {
-		//step1 load/create entitymanagerfactory object
-		//during this step META-INF /persistence.xml is read
 		EntityManagerFactory emf=null;		
-        //step 2.load/create EntityManager Object
 		EntityManager em=null;
 		try {
 			emf = Persistence.createEntityManagerFactory("oracleTest");
 			em = emf.createEntityManager();
-			//step 3.start/participate in transaction
 			EntityTransaction tx = em.getTransaction();
 			tx.begin();
-			//now we can update/select/insert/delete whatever we want
 			em.persist(customer);
 			tx.commit();
 		} finally {
-			//below code should be in finally block
 			em.close();
 			emf.close();
 		}

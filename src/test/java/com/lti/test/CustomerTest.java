@@ -2,20 +2,21 @@ package com.lti.test;
 
 import static org.junit.Assert.*;
 
+
 import java.util.List;
 
 import org.junit.Test;
 
 import com.lti.entity.Customer;
 import com.lti.entity.CustomerDao;
-;
+
 public class CustomerTest {
 
 	@Test
 	public void testAdd() {
-	Customer c=new Customer();
-	c.setName("Sujit");
-	c.setEmail("pandey.sujit@gmail.com");
+	Customer c = new Customer();
+	c.setName("Saurav");
+	c.setEmail("hunter.devil12@gmail.com");
 	c.setCity("Chennai");
 	CustomerDao dao=new CustomerDao();
 	dao.databaseAddCustomer(c);
@@ -29,6 +30,9 @@ public class CustomerTest {
 		System.out.println(cust.getEmail());
 		System.out.println(cust.getCity());
 	}
+	/*
+	 * mvn install:install-file -Dfile=C:\app\91984\product\18.0.0\dbhomeXE\jdbc\lib\ojdbc8.jar -DgroupId=com.oracle -DartifactId=ojdbc8 -Dversion=18.0.0 -Dpackaging=jar
+	 */
 	
 	@Test
 	public void testUpdate() {
@@ -64,9 +68,9 @@ public class CustomerTest {
 	public void addCustomer() {
 		CustomerDao dao1 = new CustomerDao();
 		Customer customer = new Customer();
-		customer.setCity("Falooda");
-		customer.setEmail("hunter.devil13@gmail.com");
-		customer.setName("Saurav");
+		customer.setName("Saurav Sanyal");
+		customer.setEmail("sanyal.s271@gmail.com");
+		customer.setCity("Kolkata");
 		dao1.databaseAddMerge(customer);
 	}
 }
